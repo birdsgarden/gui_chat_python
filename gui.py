@@ -3,9 +3,12 @@ import wx
 class my_frame(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, -1, "cxtan", size = (300, 200))
-        label = wx.StaticText(self, -1, "hell cxtan", (100,10), (160, 1),  wx.ALIGN_CENTER)
-        label.SetBackgroundColour("black")
-        label.SetForegroundColour("green")
+        panel = wx.Panel(self, -1)
+        label = wx.StaticText(panel, -1, "hell cxtan", (100,10))
+        txt = wx.TextCtrl(panel, -1, "input your name:", (100,50))
+        txt.SetInsertionPoint(0)
+
+        self.button = wx.Button(panel, -1, "connect", pos = (100, 100))
 if __name__ == '__main__':
     app = wx.App()
     mframe = my_frame()

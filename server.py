@@ -19,9 +19,9 @@ def new_clint(client, addr):
     client.close()
     pass
 
-def server_end():
+def server_end(local_ip):
     sock_ser = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock_ser.bind(("192.168.4.16", 9999))
+    sock_ser.bind((local_ip, 9999))
     sock_ser.listen(10)
     print "wait client connect......."
     while True:
@@ -30,7 +30,8 @@ def server_end():
         t.start()
 
 if __name__ == '__main__':
-    server_end()
+    local_IP = socket.gethostbyname(socket.gethostname())
+    server_end(local_IP)
     pass
 
 
